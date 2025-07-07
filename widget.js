@@ -12,8 +12,8 @@ class EonverseChatbot extends HTMLElement {
     container.style.position = 'fixed';
     container.style.bottom = '20px';
     container.style.right = '20px';
-    container.style.width = '360px';
-    container.style.height = '600px';
+    container.style.width = '400px';
+    container.style.height = '700px';
     container.style.zIndex = '99999';
     container.style.border = 'none';
     container.style.borderRadius = '10px';
