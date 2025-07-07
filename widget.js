@@ -19,7 +19,6 @@ class EonverseChatbot extends HTMLElement {
     container.style.borderRadius = '10px';
     container.style.boxShadow = '0 4px 16px rgba(0,0,0,0.2)';
     container.style.overflow = 'hidden';
-    container.style.background = '#fff';
 
     const iframe = document.createElement('iframe');
     iframe.src = iframeSrc;
