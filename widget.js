@@ -29,7 +29,11 @@ class EonverseChatbot extends HTMLElement {
     iframe.style.width = '100%';
     iframe.style.height = '100%';
     iframe.style.border = 'none';
+    
+    // IMPORTANT: Set allow both ways
+    iframe.setAttribute('allow', 'microphone; clipboard-write');
     iframe.allow = 'microphone; clipboard-write';
+
     container.appendChild(iframe);
     this.shadowRoot.appendChild(container);
   }
