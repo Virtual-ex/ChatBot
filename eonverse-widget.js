@@ -6,7 +6,7 @@ class EonverseChatbot extends HTMLElement {
   
     connectedCallback() {
       const username = this.getAttribute('username') || '';
-      const iframeSrc = `https://pujamavadhiya.github.io/ChatBot/eonverse-widget-frame.html?username=${encodeURIComponent(username)}`;
+      const iframeSrc = `https://virtual-ex.github.io/ChatBot//eonverse-widget-frame.html?username=${encodeURIComponent(username)}`;
   
       const container = document.createElement('div');
       container.style.position = 'fixed';
