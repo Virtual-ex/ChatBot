@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Virtualex Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body { margin:0; padding:0; }
+  </style>
+</head>
+<body class="relative w-full h-full">
+
+  <!-- Toggle Button -->
+  <div id="buttonContainer" class="fixed bottom-0 right-0 z-50 w-full h-full">
+    <button id="toggleButton"
+      class="flex items-center justify-center w-16 h-16 rounded-full bg-black shadow-lg text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300 transition duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+        class="w-10 h-10">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Popup -->
+  <div id="chatbotPopup"
+    class="hidden fixed bottom-0 right-0 w-[360px] h-[520px] bg-white border border-gray-300 rounded-lg shadow-xl z-50 overflow-hidden">
+    <div class="relative h-full">
+      <button id="closeButton" class="absolute top-2 right-2 z-10 text-gray-500 hover:text-gray-800">
+        ✕
+      </button>
+      <iframe id="chatbotIframe" class="w-full h-full border-none"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function getUsername() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('username');
+    }
+
+    const toggleButton = document.getElementById('toggleButton');
+    const closeButton = document.getElementById('closeButton');
+    const popup = document.getElementById('chatbotPopup');
+    const iframe = document.getElementById('chatbotIframe');
+
+    toggleButton.addEventListener('click', () => {
+      const username = getUsername();
+      iframe.src = `https://app.virtualex.tech/virtualEx/${username}/`;
+      popup.classList.remove('hidden');
+    });
+
+    closeButton.addEventListener('click', () => {
+      popup.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
